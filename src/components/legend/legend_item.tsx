@@ -221,7 +221,6 @@ export class LegendListItem extends Component<LegendItemProps, LegendItemState> 
           style={style}
           data-ech-series-name={label}
         >
-          <div className="background" />
           <ItemColor
             ref={this.colorRef}
             color={color}

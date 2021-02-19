@@ -16,19 +16,6 @@ $legendItemVerticalPadding: $echLegendRowGap / 2;
     }
   }
 
-  &:hover .background {
-    background-color: $euiColorLightestShade;
-  }
-
-  .background {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    z-index: -1;
-  }
-
   &__action {
     cursor: pointer;
     display: flex;
@@ -64,13 +51,6 @@ $legendItemVerticalPadding: $echLegendRowGap / 2;
     text-align: left;
     vertical-align: baseline;
     letter-spacing: unset;
-
-    &--clickable {
-      &:hover {
-        cursor: pointer;
-        text-decoration: underline;
-      }
-    }
   }
 
   &__extra {
@@ -94,14 +74,28 @@ $legendItemVerticalPadding: $echLegendRowGap / 2;
     &:first-of-type {
       margin-top: $legendItemVerticalPadding / 2;
     }
-
-    .background {
-      margin-top: $legendItemVerticalPadding / 2;
-      margin-bottom: $legendItemVerticalPadding / 2;
-    }
   }
 
   &--hidden {
     color: $euiColorDarkShade;
+  }
+
+  
+
+  &:hover {
+    .echLegendItem__extra,
+    .echLegendItem__label {
+      color: $euiColorFullShade;
+      // using text-shadow instead of font-weight bold to avoid jumping
+      text-shadow: 1px 1px 0 lightOrDarkTheme(
+        shade($euiColorLightestShade, 4%),
+        $euiColorLightShade,
+      );
+    }
+
+    .echLegendItem__label--clickable {
+      cursor: pointer;
+      text-decoration: underline;
+    }
   }
 }
